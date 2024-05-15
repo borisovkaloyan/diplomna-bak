@@ -1,0 +1,7 @@
+path: C:\Users\Kaloyan Borisov\Desktop\Le_TU\diplomineishan\plate_recognition\registration_plate_set_1
+train: images
+val: images
+
+# Classes
+names:
+  0: registration_plate

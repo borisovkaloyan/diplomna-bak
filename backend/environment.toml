@@ -1,0 +1,6 @@
+# Dev server
+database_host     = 'localhost'
+database_port     = 5432
+database_user     = 'postgres'
+database_password = 'admin'
+database_name     = 'parking'

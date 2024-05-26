@@ -1,6 +1,13 @@
 # Dev server
-database_host     = 'localhost'
-database_port     = 5432
-database_user     = 'postgres'
-database_password = 'admin'
-database_name     = 'parking'
+# database_host     = 'localhost'
+# database_port     = 5432
+# database_user     = 'postgres'
+# database_password = 'admin'
+# database_name     = 'parking'
+
+# Cloud server
+database_host     = 'parking-parking-thing-2024.l.aivencloud.com'
+database_port     = 15672
+database_user     = 'avnadmin'
+database_password = 'AVNS_QHiicYULKpnh43AE64Z'
+database_name     = 'defaultdb'

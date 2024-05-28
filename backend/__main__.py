@@ -5,7 +5,8 @@ import uvicorn
 from backend.endpoints import router
 
 app = FastAPI()
-
+app.openapi_version = "3.0.1"
+app.include_router(router)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
@@ -13,7 +14,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.include_router(router)
 
 def backend_entrypoint() -> None:
     """

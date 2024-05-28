@@ -9,5 +9,8 @@ User is 'avnadmin'\
 Pass is 'AVNS_QHiicYULKpnh43AE64Z'\
 Database name is 'defaultdb'
 
-Backend is hosted on Google Cloud at 34.118.110.219
+Backend is hosted on Google Cloud at [34.118.78.253](http://34.118.78.253/)
 Uses a Kubernetes cluster.
+
+Upgrade Container image:
+```kubectl set image deployment/parkingbuddy backend-sha256-1=us-west2-docker.pkg.dev/parkingbuddy-424610/quickstart-docker-repo/backend:1.0.1```

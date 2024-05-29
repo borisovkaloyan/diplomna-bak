@@ -5,13 +5,22 @@ from backend.database.entry import ParkingEntry
 from backend.database.registration_plate import RegistrationPlate
 from backend.database.user import User
 from backend.database_service import DatabaseService
-from backend.models import CreateEntryModel, CreatePlateModel, CreateUserModel, EntryDataModel, ExitEntryModel, PayEntryModel, ReguistrationModel, UserDataModel, UserModel
+from backend.models import CreateEntryModel, CreatePlateModel, CreateUserModel, EntryDataModel, ExitEntryModel, PayEntryModel, RegistrationModel, UserDataModel, UserModel
 from fastapi.responses import JSONResponse
 from fastapi import status
 
 import re
 
 def create_new_user(create_user: CreateUserModel) -> JSONResponse:
+    """
+    Service for user creation
+
+    Args:
+        create_user (CreateUserModel): Required user data
+
+    Returns:
+        JSONResponse: Creation status
+    """
     http_code = status.HTTP_201_CREATED
     message = "Created new user"
 
@@ -34,12 +43,23 @@ def create_new_user(create_user: CreateUserModel) -> JSONResponse:
         session.add(new_user)
         session.commit()
 
+    session.close()
+
     return JSONResponse(
         status_code=http_code,
         content={"message": message}
     )
 
 def get_user_data(user: UserModel) -> UserDataModel:
+    """
+    Service for getting user data
+
+    Args:
+        user (UserModel): User to get data for
+
+    Returns:
+        UserDataModel: User data
+    """
     user_return_data = UserDataModel()
     session = DatabaseService.create_database_session()
 
@@ -47,16 +67,37 @@ def get_user_data(user: UserModel) -> UserDataModel:
         for plate in user_database_data.registration_plates:
             user_return_data.registration_plates.append(plate.plate_text)
         user_return_data.username = user_database_data.user_name
+        user_return_data.email = user.email
+
+    session.close()
 
     return user_return_data
 
 def verify_registration_plate(registration_plate: str) -> bool:
+    """
+    Verification for plate validity
+
+    Args:
+        registration_plate (str): Plate to check
+
+    Returns:
+        bool: Validity status
+    """
     plate_regex = re.compile(r"[A-Z]{2}\d{4}[A-Z]{2}")
     if plate_regex.match(registration_plate):
         return True
     return False
 
 def create_new_plate(create_plate: CreatePlateModel) -> JSONResponse:
+    """
+    Service to create new license plate
+
+    Args:
+        create_plate (CreatePlateModel): Plate to create
+
+    Returns:
+        JSONResponse: Creation status
+    """
     http_code = status.HTTP_201_CREATED
     message = "Created new registration plate"
 
@@ -80,12 +121,23 @@ def create_new_plate(create_plate: CreatePlateModel) -> JSONResponse:
         session.add(new_plate)
         session.commit()
 
+    session.close()
+
     return JSONResponse(
         status_code=http_code,
         content={"message": message}
     )
 
 def create_new_entry(create_entry: CreateEntryModel) -> JSONResponse:
+    """
+    Service to create new parking entry
+
+    Args:
+        create_entry (CreateEntryModel): Required creation data
+
+    Returns:
+        JSONResponse: Creation status
+    """
     http_code = status.HTTP_201_CREATED
     message = "Created new parking entry"
 
@@ -115,12 +167,23 @@ def create_new_entry(create_entry: CreateEntryModel) -> JSONResponse:
         session.add(new_park)
         session.commit()
 
+    session.close()
+
     return JSONResponse(
         status_code=http_code,
         content={"message": message}
     )
 
 def entry_exit(exit_entry: ExitEntryModel) -> JSONResponse:
+    """
+    Service to update entry with exit status
+
+    Args:
+        exit_entry (ExitEntryModel): Required data for exit
+
+    Returns:
+        JSONResponse: Exit status
+    """
     http_code = status.HTTP_200_OK
     message = "Exited Successfully"
 
@@ -152,12 +215,23 @@ def entry_exit(exit_entry: ExitEntryModel) -> JSONResponse:
             http_code = status.HTTP_409_CONFLICT
             message = "Vehicle with this registration has never parked"
 
+    session.close()
+
     return JSONResponse(
         status_code=http_code,
         content={"message": message}
     )
 
 def pay_entry(pay_entry: PayEntryModel) -> JSONResponse:
+    """
+    Service for entry payment
+
+    Args:
+        pay_entry (PayEntryModel): Required data for payment
+
+    Returns:
+        JSONResponse: Payment status
+    """
     http_code = status.HTTP_200_OK
     message = "Paid Successfully"
 
@@ -177,12 +251,23 @@ def pay_entry(pay_entry: PayEntryModel) -> JSONResponse:
             session.add(entry_to_be_paid)
             session.commit()
 
+    session.close()
+
     return JSONResponse(
         status_code=http_code,
         content={"message": message}
     )
 
-def get_entry_data(registration: ReguistrationModel) -> list[EntryDataModel]:
+def get_entry_data(registration: RegistrationModel) -> list[EntryDataModel]:
+    """
+    Service to get data for entry
+
+    Args:
+        registration (RegistrationModel): Plate for which to get data
+
+    Returns:
+        list[EntryDataModel]: List of entry data
+    """
     entries = []
 
     session = DatabaseService.create_database_session()
@@ -195,7 +280,10 @@ def get_entry_data(registration: ReguistrationModel) -> list[EntryDataModel]:
         entry_data.entry_time = entry.entry_time
         entry_data.exit_time = entry.exit_time
         entry_data.is_paid = entry.is_paid
+        entry_data.registration_plate = registration
 
         entries.append(entry_data)
+
+    session.close()
 
     return entries

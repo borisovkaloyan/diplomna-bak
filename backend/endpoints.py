@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
 
-from backend.models import CreateEntryModel, CreatePlateModel, CreateUserModel, EntryDataModel, ExitEntryModel, PayEntryModel, ReguistrationModel, UserDataModel, UserModel
+from backend.models import CreateEntryModel, CreatePlateModel, CreateUserModel, EntryDataModel, ExitEntryModel, PayEntryModel, RegistrationModel, UserDataModel, UserModel
 import backend.service as service
 
 router = APIRouter()
@@ -173,12 +173,12 @@ async def pay_entry(pay_entry: PayEntryModel) -> JSONResponse:
         }
     }
 )
-async def get_entry_data(registration: ReguistrationModel) -> list[EntryDataModel]:
+async def get_entry_data(registration: RegistrationModel) -> list[EntryDataModel]:
     """
     Gets entry data
 
     Args:
-        registration (ReguistrationModel): Input data
+        registration (RegistrationModel): Input data
 
     Returns:
         list[EntryDataModel]: Entry data

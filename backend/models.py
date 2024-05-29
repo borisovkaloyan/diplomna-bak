@@ -12,6 +12,7 @@ class UserModel(BaseModel):
 
 class UserDataModel(BaseModel):
     username: str = ""
+    email: str
     registration_plates: list[str] = []
 
 class CreatePlateModel(BaseModel):
@@ -27,7 +28,7 @@ class ExitEntryModel(BaseModel):
 class PayEntryModel(BaseModel):
     entry_id: int
 
-class ReguistrationModel(BaseModel):
+class RegistrationModel(BaseModel):
     registration_plate: str
 
 class EntryDataModel(BaseModel):
@@ -35,3 +36,4 @@ class EntryDataModel(BaseModel):
     entry_time: datetime = datetime.now()
     exit_time: datetime = datetime.now()
     is_paid: bool = False
+    registration_plate: str

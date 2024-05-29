@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 # Setup package
 setup(
     name="pariking-buddy-backend",   # App name
-    version="1.0.1",                 # App version
+    version="1.0.2",                 # App version
     packages=find_packages(),   # App packages
     install_requires=[          # App requirements
         "fastapi",

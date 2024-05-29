@@ -12,7 +12,7 @@ class UserModel(BaseModel):
 
 class UserDataModel(BaseModel):
     username: str = ""
-    email: str
+    email: str = ""
     registration_plates: list[str] = []
 
 class CreatePlateModel(BaseModel):
@@ -36,4 +36,4 @@ class EntryDataModel(BaseModel):
     entry_time: datetime = datetime.now()
     exit_time: datetime = datetime.now()
     is_paid: bool = False
-    registration_plate: str
+    registration_plate: str = ""

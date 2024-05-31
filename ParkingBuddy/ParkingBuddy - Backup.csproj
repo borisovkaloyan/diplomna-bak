@@ -57,15 +57,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <OpenApiReference Include="OpenAPIs\openapi.json" Namespace="ParkingBuddy" ClassName="BackendClient">
+	  <OpenApiReference Include="OpenAPIs\openapi.json" CodeGenerator="NSwagCSharp">
 	    <SourceUri>http://34.118.78.253/openapi.json</SourceUri>
-		  <Options>/OperationGenerationMode:SingleClientFromOperationId</Options>
 	  </OpenApiReference>
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="8.0.5">
+		<PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.2">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -80,23 +79,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\EntryDetailsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegistrationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserMainPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Views\RegistrationPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
+	  <None Update="OpenAPIs\openapi.json"/>
+	  <None Update="Views\RegistrationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
 	  </None>
 	</ItemGroup>
 

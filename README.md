@@ -14,4 +14,4 @@ Uses a Kubernetes cluster.
 
 Upgrade Container image:
 Build image with build.bat, then use kubectl in deployment
-```kubectl set image deployment/parkingbuddy backend-sha256-1=us-west2-docker.pkg.dev/parkingbuddy-424610/quickstart-docker-repo/backend:1.0.3```
+```kubectl set image deployment/parkingbuddy backend-sha256-1=us-west2-docker.pkg.dev/parkingbuddy-424610/quickstart-docker-repo/backend:1.0.5```

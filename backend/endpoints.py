@@ -32,7 +32,7 @@ async def create_new_user(create_user: CreateUserModel) -> JSONResponse:
     """
     return service.create_new_user(create_user)
 
-@router.get(
+@router.post(
     "/users/data",
     responses={
         status.HTTP_200_OK: {
@@ -162,7 +162,7 @@ async def pay_entry(pay_entry: PayEntryModel) -> JSONResponse:
     """
     return service.pay_entry(pay_entry)
 
-@router.get(
+@router.post(
     "/entry/data",
     responses={
         status.HTTP_200_OK: {

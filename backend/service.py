@@ -280,7 +280,7 @@ def get_entry_data(registration: RegistrationModel) -> list[EntryDataModel]:
         entry_data.entry_time = entry.entry_time
         entry_data.exit_time = entry.exit_time
         entry_data.is_paid = entry.is_paid
-        entry_data.registration_plate = registration
+        entry_data.registration_plate = registration.registration_plate
 
         entries.append(entry_data)
 

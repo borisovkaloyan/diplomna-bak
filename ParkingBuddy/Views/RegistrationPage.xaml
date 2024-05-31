@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ParkingBuddy.ViewModel"
+             x:Class="ParkingBuddy.Views.RegistrationPage"
+             x:DataType="viewmodel:RegistrationPageViewModel">
+    <VerticalStackLayout VerticalOptions="Center">
+        <Label 
+            Text="{Binding RegistrationLabel}" 
+            FontSize="Medium"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Padding="0,0,0,20"/>
+        <Entry Text="{Binding EmailEntry}" Placeholder="Input Email" Margin="30,0"/>
+        <Entry Text="{Binding UsernameEntry}" Placeholder="Input Username" Margin="30,5,30,15"/>
+        <Entry Text="{Binding PasswordEntry}" Placeholder="Input Password" IsPassword="True" Margin="30,5,30,0"/>
+        <Entry Text="{Binding RepeatPasswordEntry}" Placeholder="Repeat Password" IsPassword="True" Margin="30,5,30,10"/>
+        <Button Text="Register" Command="{Binding RegisterButtonPressedCommand}" Margin="30, 0"/>
+        <Label 
+            Text="{Binding ErrorMessage}" 
+            FontSize="Medium"
+            TextColor="Red"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Padding="0,10,0,20"/>
+    </VerticalStackLayout>
+</ContentPage>

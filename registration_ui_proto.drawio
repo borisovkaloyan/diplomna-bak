@@ -1,0 +1,31 @@
+<mxfile host="65bd71144e">
+    <diagram id="YNpzMSi8A1h4YotQGTVt" name="Page-1">
+        <mxGraphModel dx="1001" dy="603" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="50" width="260" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Register" style="rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=10;fillColor=#E6E6E6;align=center;strokeColor=#E6E6E6;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="147.25" y="420" width="105.5" height="16.88" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Username" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="103.5" y="190" width="196.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="E-mail" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="103.5" y="240" width="196.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Password" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="103.5" y="300" width="196.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Confirm password" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="103.5" y="350" width="196.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Registration screen" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="135" y="140" width="130" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

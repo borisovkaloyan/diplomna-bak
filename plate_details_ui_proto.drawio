@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="VxTnhjqn_KnpYQAZXTXX" name="Page-1">
+        <mxGraphModel dx="1001" dy="603" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="50" width="260" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Data for &amp;lt;&amp;lt;Registration plate&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="105" y="115" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="ID" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="155" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Entry time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="155" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Exit time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="185" y="155" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Payment &lt;br&gt;status" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="150" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="85" y="195" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="12:33" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="195" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="19:45" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="195" y="195" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Already &lt;br&gt;paid" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="255" y="190" width="60" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

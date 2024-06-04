@@ -159,7 +159,7 @@ def create_new_entry(create_entry: CreateEntryModel) -> JSONResponse:
         (ParkingEntry.exit_time != None) &
         (ParkingEntry.is_paid == False)).first():
         http_code = status.HTTP_402_PAYMENT_REQUIRED
-        message = "Previous parking has not been paid. Vehilcle cannot enter"
+        message = "Previous parking has not been paid. Vehicle cannot enter"
     else:
         new_park = ParkingEntry(
             create_entry.registration_plate

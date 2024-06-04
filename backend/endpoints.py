@@ -94,7 +94,7 @@ async def create_new_plate(create_plate: CreatePlateModel) -> JSONResponse:
             "description": "Plate with provided data already parked",
         },
         status.HTTP_402_PAYMENT_REQUIRED: {
-            "description": "Previous parking has not been paid. Vehilcle cannot enter"
+            "description": "Previous parking has not been paid. Vehicle cannot enter"
         }
     }
 )

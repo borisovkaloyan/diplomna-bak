@@ -2,3 +2,6 @@ ultralytics
 fastapi
 sqlalchemy
 psycopg2-binary
+numpy
+opencv-python
+openapi-python-client

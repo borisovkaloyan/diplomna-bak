@@ -12,7 +12,25 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Python Debugger: Module",
+            "name": "Python Debugger: Entrance",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "parking_controls",
+            "args": [
+                "--type", "entrance"
+            ]
+        },
+        {
+            "name": "Python Debugger: Exit",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "parking_controls",
+            "args": [
+                "--type", "exit"
+            ]
+        },
+        {
+            "name": "Python Debugger: Backend",
             "type": "debugpy",
             "request": "launch",
             "module": "backend"

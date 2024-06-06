@@ -6,8 +6,6 @@ import json
 import parking_controls.utils as utils
 
 from parking_controls.backend_client import Client
-from parking_controls.backend_client.models import create_entry_model
-from parking_controls.backend_client.api.default import create_new_entry_entry_in_post
 from parking_controls.backend_client.types import Response
 
 # load backend client

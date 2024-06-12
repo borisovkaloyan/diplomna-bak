@@ -15,7 +15,8 @@ client = Client("http://34.118.78.253")
 results = {}
 
 # load models
-license_plate_detector = YOLO('./parking_controls/plate_model.pt')
+# license_plate_detector = YOLO('./parking_controls/plate_model.pt')
+license_plate_detector = YOLO('./parking_controls/plate_model_light.pt')
 
 # load video
 cap = cv2.VideoCapture('./parking_controls/test_video.mp4')
@@ -43,7 +44,8 @@ with client as client:
 
             for plate in detections.boxes.data.tolist():
                 x1, y1, x2, y2, score, _ = plate
-                if score > 0.3:
+                # Change to 0.3 for m model
+                if score > 0.2:
 
                     license_plate_crop = frame[int(y1):int(y2), int(x1): int(x2), :]
                     license_plate_crop_gray = cv2.cvtColor(license_plate_crop, cv2.COLOR_BGR2GRAY)
@@ -68,7 +70,7 @@ with client as client:
                             door_message = "Barrier lifted!"
                         else:
                             door_message = "Barrier closed!"
-                        backend_message = json.loads(response.content.decode("utf-8"))["message"]
+                        backend_message = "Backend response: " + str(json.loads(response.content.decode("utf-8"))["message"])
 
                     if backend_message:
                         cv2.putText(

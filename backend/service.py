@@ -64,10 +64,11 @@ def get_user_data(user: UserModel) -> UserDataModel:
     session = DatabaseService.create_database_session()
 
     if user_database_data := session.query(User).filter(User.user_email == user.email).first():
-        for plate in user_database_data.registration_plates:
-            user_return_data.registration_plates.append(plate.plate_text)
-        user_return_data.username = user_database_data.user_name
-        user_return_data.email = user.email
+        if user_database_data.password == user.password:
+            for plate in user_database_data.registration_plates:
+                user_return_data.registration_plates.append(plate.plate_text)
+            user_return_data.username = user_database_data.user_name
+            user_return_data.email = user.email
 
     session.close()
 

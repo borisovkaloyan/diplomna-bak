@@ -13,6 +13,7 @@ namespace ParkingBuddy
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("FE-FONT.TTF", "FE");
                 });
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://34.118.78.253") });

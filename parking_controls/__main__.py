@@ -23,7 +23,7 @@ active_backend = True
 # Load models
 if nano:
     license_plate_detector = YOLO('./parking_controls/plate_model_light.pt')
-    min_confidence = 0.2
+    min_confidence = 0.32
 else:
     license_plate_detector = YOLO('./parking_controls/plate_model.pt')
     min_confidence = 0.3
@@ -56,6 +56,8 @@ with client as client:
                 x1, y1, x2, y2, score, _ = plate
 
                 if score > min_confidence:
+
+                    print(f"Detection confidence: {score}")
 
                     license_plate_crop = frame[int(y1):int(y2), int(x1): int(x2), :]
                     if resize:

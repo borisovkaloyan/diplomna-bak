@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,9 +31,22 @@ namespace ParkingBuddy.ViewModel
         {
             UserModel user = new UserModel()
             {
-                Email = EmailEntry,
-                Password = PasswordEntry
+                Email = EmailEntry
             };
+            byte[] bytes = [];
+
+            using (HashAlgorithm algorithm = SHA256.Create())
+                if (algorithm != null)
+                {
+                    bytes = algorithm.ComputeHash(Encoding.UTF8.GetBytes(PasswordEntry));
+                }
+
+            StringBuilder sb = new();
+            foreach (byte b in bytes)
+                sb.Append(b.ToString("X2"));
+
+            user.Password = sb.ToString();
+
             try
             {
                 var response = await _client.Get_user_data_users_data_postAsync(user);
@@ -48,7 +62,7 @@ namespace ParkingBuddy.ViewModel
                 }
                 else
                 {
-                    ErrorMessage = "Did not receive response from backend. Service may be down.";
+                    ErrorMessage = "Failed to log in. Are you sure email and password are correct?";
                 }
             }
             catch (ApiException ex)

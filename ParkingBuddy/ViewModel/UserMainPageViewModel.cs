@@ -33,7 +33,7 @@ namespace ParkingBuddy.ViewModel
             {
                 foreach (var plate in UserModel.Registration_plates)
                 {
-                    Plates.Add(plate);
+                    Plates.Add(plate[0..2] + " " + plate[2..6] + " " + plate[6..8]);
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace ParkingBuddy.ViewModel
         {
             try
             {
-                var response = await _client.Get_entry_data_entry_data_postAsync(new RegistrationModel() { Registration_plate = clickedPlate });
+                var response = await _client.Get_entry_data_entry_data_postAsync(new RegistrationModel() { Registration_plate = clickedPlate[0..2] + clickedPlate[3..7] + clickedPlate[8..10] });
                 if (response != null)
                 {
                     await Shell.Current.GoToAsync(nameof(EntryDetailsPage), new Dictionary<string, object>
@@ -110,7 +110,8 @@ namespace ParkingBuddy.ViewModel
                         }
                         else
                         {
-                            Plates.Add(NewPlateText.ToUpper());
+                            string plate = NewPlateText.ToUpper();
+                            Plates.Add(plate[0..2] + " " + plate[2..6] + " " + plate[6..8]);
                             NewPlateText = "";
                             ErrorMessage = "";
                         }

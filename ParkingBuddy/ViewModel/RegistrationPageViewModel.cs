@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,11 +44,25 @@ namespace ParkingBuddy.ViewModel
                 !string.IsNullOrEmpty(RepeatPasswordEntry) && 
                 (PasswordEntry == RepeatPasswordEntry))
             {
+                byte[] bytes = [];
+
+                using (HashAlgorithm algorithm = SHA256.Create())
+                    if (algorithm != null)
+                    {
+                        bytes = algorithm.ComputeHash(Encoding.UTF8.GetBytes(PasswordEntry));
+                    }
+                
+                StringBuilder sb = new();
+                foreach (byte b in bytes)
+                    sb.Append(b.ToString("X2"));
+
+                string pass = sb.ToString();
+
                 CreateUserModel model = new CreateUserModel()
                 {
                     Username = UsernameEntry,
                     Email = EmailEntry,
-                    Password = PasswordEntry
+                    Password = pass
                 };
 
                 try

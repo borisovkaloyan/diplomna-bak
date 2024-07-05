@@ -16,6 +16,8 @@ class DatabaseService(object):
     postgres_port = None
     postgres_database = None
 
+    engine = None
+
     def __init__(
         self,
     ) -> None:
@@ -43,13 +45,14 @@ class DatabaseService(object):
             DatabaseService.postgres_database = data["database_name"]
 
         # Create session
-        engine = create_engine(
-            f'postgresql://{DatabaseService.postgres_user}:{DatabaseService.postgres_password}' +
-            f'@{DatabaseService.postgres_host}:{DatabaseService.postgres_port}/{DatabaseService.postgres_database}',
-            echo=False
-        )
-        BaseSql.metadata.create_all(bind=engine)
-        session = sessionmaker(bind=engine)()
+        if DatabaseService.engine is None:
+            DatabaseService.engine = create_engine(
+                f'postgresql://{DatabaseService.postgres_user}:{DatabaseService.postgres_password}' +
+                f'@{DatabaseService.postgres_host}:{DatabaseService.postgres_port}/{DatabaseService.postgres_database}',
+                echo=False
+            )
+        BaseSql.metadata.create_all(bind=DatabaseService.engine)
+        session = sessionmaker(bind=DatabaseService.engine)()
 
         # Session settings
         session.expire_on_commit = False

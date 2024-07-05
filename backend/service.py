@@ -44,6 +44,7 @@ def create_new_user(create_user: CreateUserModel) -> JSONResponse:
         session.commit()
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return JSONResponse(
         status_code=http_code,
@@ -71,6 +72,7 @@ def get_user_data(user: UserModel) -> UserDataModel:
             user_return_data.email = user.email
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return user_return_data
 
@@ -123,6 +125,7 @@ def create_new_plate(create_plate: CreatePlateModel) -> JSONResponse:
         session.commit()
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return JSONResponse(
         status_code=http_code,
@@ -169,6 +172,7 @@ def create_new_entry(create_entry: CreateEntryModel) -> JSONResponse:
         session.commit()
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return JSONResponse(
         status_code=http_code,
@@ -217,6 +221,7 @@ def entry_exit(exit_entry: ExitEntryModel) -> JSONResponse:
             message = "Vehicle with this registration has never parked"
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return JSONResponse(
         status_code=http_code,
@@ -253,6 +258,7 @@ def pay_entry(pay_entry: PayEntryModel) -> JSONResponse:
             session.commit()
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return JSONResponse(
         status_code=http_code,
@@ -286,5 +292,6 @@ def get_entry_data(registration: RegistrationModel) -> list[EntryDataModel]:
         entries.append(entry_data)
 
     session.close()
+    DatabaseService.engine.dispose()
 
     return entries

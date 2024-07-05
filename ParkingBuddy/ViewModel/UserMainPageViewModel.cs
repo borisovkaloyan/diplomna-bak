@@ -112,6 +112,7 @@ namespace ParkingBuddy.ViewModel
                         {
                             string plate = NewPlateText.ToUpper();
                             Plates.Add(plate[0..2] + " " + plate[2..6] + " " + plate[6..8]);
+                            UserModel?.Registration_plates.Add(plate);
                             NewPlateText = "";
                             ErrorMessage = "";
                         }
